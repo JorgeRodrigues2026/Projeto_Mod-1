@@ -1,4 +1,4 @@
-# SysManu_2026 - Manutenção Preditiva — Indústria 4.0
+# SysManut_2026 - Manutenção Preditiva — Indústria 4.0
 
 Projeto de Ciência de Dados para prever falhas mecânicas em máquinas industriais a partir de sensores e características operacionais.
 
