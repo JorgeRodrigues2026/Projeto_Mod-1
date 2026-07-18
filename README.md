@@ -1,4 +1,4 @@
-# Manutenção Preditiva — Indústria 4.0
+# SysManu_2026 - Manutenção Preditiva — Indústria 4.0
 
 Projeto de Ciência de Dados para prever falhas mecânicas em máquinas industriais a partir de sensores e características operacionais.
 
@@ -18,10 +18,12 @@ projeto_manutencao_preditiva/
 │   ├── manutencao_preditiva.csv
 │   └── manutencao_preditiva_limpa.csv
 ├── dashboard
+│    └── dashboard_monitiramento.py
 ├── notebooks
 ├── outputs
 ├── tools
 ├── projeto_manutencao_preditiva.ipynb
+├── notebook_complementar_modelos_dashboard_lightgbm.ipynb
 ├── requirements.txt
 └── README.md
 ```
