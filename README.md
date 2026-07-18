@@ -1,4 +1,4 @@
-# Manutenção Preditiva IA — Indústria 4.0
+# Manutenção Preditiva — Indústria 4.0
 
 Projeto de Ciência de Dados para prever falhas mecânicas em máquinas industriais a partir de sensores e características operacionais.
 
@@ -17,12 +17,16 @@ projeto_manutencao_preditiva/
 ├── data/
 │   ├── manutencao_preditiva.csv
 │   └── manutencao_preditiva_limpa.csv
+├── dashboard
+├── notebooks
+├── outputs
+├── tools
 ├── projeto_manutencao_preditiva.ipynb
 ├── requirements.txt
 └── README.md
 ```
 
-O arquivo `projeto_manutencao_preditiva.ipynb` é o notebook principal atualizado. As pastas `notebooks/`, `outputs/` e `tools/` pertencem à estrutura anterior do projeto e contêm versões ou artefatos auxiliares.
+✅ - O arquivo `projeto_manutencao_preditiva.ipynb` é o notebook principal atualizado. As pastas `data/`,`notebooks/`, `outputs/` e `tools/` são auxiliares.
 
 ## Etapas do pipeline
 
@@ -88,17 +92,18 @@ Para cada configuração são calculadas:
 - acurácia no conjunto de teste;
 - gap entre treino e teste, usado como indicação de overfitting.
 
-Os melhores modelos também são avaliados por matriz de confusão, precisão, recall e F1-score. Em manutenção preditiva, o recall da classe de falha merece atenção especial, pois um falso negativo representa uma falha que o sistema deixou de detectar.
+✅ - Os melhores modelos também são avaliados por matriz de confusão, precisão, recall e F1-score. Em manutenção preditiva, o recall da classe de falha merece atenção especial, pois um falso negativo representa uma falha que o sistema deixou de detectar.
 
 ## Como executar
 
 1. Clone o repositório e acesse a pasta do projeto:
 
 ```bash
-cd projeto_manutencao_preditiva
+cd projeto_manutencao_preditiva40
 ```
 
 2. Crie e ative um ambiente virtual, se necessário.
+
 
 3. Instale as dependências:
 
@@ -174,7 +179,7 @@ Ao final, faça merge para `main`.
 
 ## Complemento: modelos avançados e dashboard
 
-O arquivo `notebook_complementar_modelos_dashboard_lightgbm.ipynb` adiciona funcionalidades além do escopo do notebook principal:
+### 🎯 - O arquivo `notebook_complementar_modelos_dashboard_lightgbm.ipynb` adiciona funcionalidades além do escopo do notebook principal:
 
 - avaliação com foco em recall e F1-score da classe de falha;
 - teste de Random Forest, Gradient Boosting, três configurações de LightGBM e XGBoost opcional;
