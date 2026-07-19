@@ -8,3 +8,5 @@ lightgbm
 joblib
 streamlit
 jupyter
+pylance
+

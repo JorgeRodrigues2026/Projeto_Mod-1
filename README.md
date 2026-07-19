@@ -101,7 +101,7 @@ Para cada configuração são calculadas:
 1. Clone o repositório e acesse a pasta do projeto:
 
 ```bash
-cd projeto_manutencao_preditiva40
+cd projeto_Mod-1
 ```
 
 2. Crie e ative um ambiente virtual, se necessário.
