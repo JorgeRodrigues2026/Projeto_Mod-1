@@ -9,4 +9,6 @@ joblib
 streamlit
 jupyter
 pylance
+ipykernel
+
 
