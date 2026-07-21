@@ -1,0 +1,68 @@
+1- criacao do Repositório "projeto_Mod-1"
+2- criacao arquivo README com conteudo básico no momento
+3 -Baixar o clone no equipamento, através do gitbash
+4- Ir até a pasta do projeto, abrir o README
+5 - Subir as primeiras partes do projeto ao salvar os arquivos.
+6 - Verificar informações do projeto
+7 - baixar o arquivo dataset .CSV e Documento da engenharia PDF.
+8 - criar e salvar um arquivo projeto.ipynb.
+9 - já segmentar markdowns codigos / explicacao de cada parte do projeto
+10 - Importar o arquivo "manutencao_preditiva.csv" => dataframe original / fazer copia df_tratado, onde sera feito o tratamento dos dados
+----------------------------------------------------------------------------------
+ 
+1. Arquivo requirements.txt (Dependências)
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+imbalanced-learn
+lightgbm
+joblib
+streamlit
+jupyter
+pylance
+ipykernel
+----------------------------------------------------------------------------------
+
+2. Arquivo README.md (Documentação Técnica)
+## Como executar 
+1. Crie um ambiente virtual Python. 
+2. Instale as dependencias: ```bash
+ pip install -r requirements.txt
+3.Abra e execute o notebook:
+jupyter notebook notebooks/projeto_manutencao_preditiva.ipynb
+
+
+Tambem é possível carregar pelo script:
+```bash
+python tools/gerar_projeto.py
+----------------------------------------------------------------------------------
+
+ - Decisões Técnicas
+As colunas falha_twf, falha_hdf, falha_pwf, falha_osf e falha_rnf foram mantidas apenas para consulta histórica, pois representam causas já conhecidas da quebra. Usá-las como preditoras inflaria artificialmente a acurácia. A imputação por mediana foi escolhida por ser robusta a outliers, observados nos boxplots.
+
+3. Notebook `projeto_manutencao_preditiva.ipynb` 
+**Fase 1 (EDA):** Carregamento, checagem inicial e correlação.
+**Fase 2 (Limpeza):** Tratamento de Nulos pela **mediana**, evitando viés por outliers.
+**Fase 3 (Feature Engineering):** Criação da feature `potencia` e entendimento do alvo (`y`).
+**Fase 4 (Pré-Modelagem):** Divisão dos dados (80/20) e, crucialmente, a técnica de **Oversampling** no conjunto de treinamento para balancear as classes.
+**Fase 5/6 (Treinamento e Ajuste):** Treinamento de múltiplos modelos (KNN e Árvore decisão), avaliação do *overfitting* e seleção do melhor modelo com base na acurácia de teste (lightgbm).
+
+Resumo
+1.  **Tratamento de Nulos:** Foi usado o método de **Mediana** (`fillna(medianas)`), pois ele é mais robusto e menos afetado por valores extremos (outliers) em comparação com a Média.
+
+2.  **Prevenção de Vazamento de Dados (Data Leakage):** As colunas que indicam causas específicas de falha (`falha_twf`, etc.) foram removidas do conjunto preditivo ($\mathbf{X}$) para garantir que o modelo aprenda apenas relações causais e não memorizar informações históricas.
+
+3.  **Balanceamento de Classes:** Foi aplicado **Oversampling** (usando `resample`) na classe minoritária (falha) no *conjunto de treinamento* (`y_train_bal`). Isso é vital em problemas de falhas, onde o evento de interesse é raro, prevenindo que os modelos simplesmente prevejam sempre a classe majoritária (Normal).
+
+4.  **Estrutura Completa:** O código segue um padrão profissional: EDA $\rightarrow$ Pré-processamento $\rightarrow$ Modelagem $\rightarrow$ Avaliação $\rightarrow$ Conclusão.
+
+	Dashboard monitoramento: pasta local de trabalho...
+Bash:
+python -m streamlit run dashboard\dashboard_monitoramento.py
+
+msg:
+2026-07-08 20:10:38.406 Uvicorn server started on :::8501
+  você pode visualizar Streamlit app no seu browser.
+  Local URL: http://localhost:8501  Network URL: http://172.21.13.182:8501
